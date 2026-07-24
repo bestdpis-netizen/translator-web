@@ -145,9 +145,9 @@
     <div class="ctl">
       <label>엔진</label>
       <select class="sel" id="engine" onchange="onEngineChange()">
-        <option value="auto">자동 (내장 우선 → MyMemory)</option>
-        <option value="builtin">브라우저 내장 (오프라인·무제한)</option>
-        <option value="mymemory">MyMemory (온라인·하루 한도)</option>
+        <option value="auto">자동 (오프라인 → 온라인)</option>
+        <option value="builtin">오프라인 (무제한)</option>
+        <option value="mymemory">온라인 (하루 한도)</option>
       </select>
     </div>
     <button class="opt-toggle" id="optBtn" onclick="toggleOptions()">📑 용어집<span id="optCount"></span></button>
@@ -401,11 +401,11 @@ function resolveEngine(){
   if(e==='mymemory') return 'mymemory';
   return builtinSupported ? 'builtin' : 'mymemory';
 }
-function engineLabel(e){ return e==='builtin'?'브라우저 내장':'MyMemory'; }
+function engineLabel(e){ return e==='builtin'?'오프라인':'온라인'; }
 function updateEngChip(){
   const c=document.getElementById('engChip'), e=resolveEngine();
-  if(e==='builtin'){ c.textContent='브라우저 내장 엔진 · 오프라인'; c.className='chip on'; }
-  else{ c.textContent='MyMemory · 하루 한도 있음'; c.className='chip warn'; }
+  if(e==='builtin'){ c.textContent='오프라인 · 무제한'; c.className='chip on'; }
+  else{ c.textContent='온라인 · 하루 한도'; c.className='chip warn'; }
 }
 async function checkBuiltin(verbose){
   const el=document.getElementById('engState');
