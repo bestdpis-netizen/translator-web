@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>번역기</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#fff; --ink:#1a1c22; --muted:#6b7280; --line:#e3e6ec;
+    --blue:#1f5eff; --blue-soft:#eaf0ff; --green:#0f9d58; --green-soft:#e8f6ee;
+    --sans:"Malgun Gothic","맑은 고딕","Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:14px;line-height:1.6;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+  .wrap{width:100%;max-width:840px}
+  h1{margin:0 0 6px;font-size:24px;font-weight:800;letter-spacing:-.4px}
+  .lead{margin:0 0 26px;font-size:13px;color:var(--muted)}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;
+        text-decoration:none;color:inherit;transition:.15s}
+  .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .card.free:hover{border-color:var(--green)}
+  .card.ai:hover{border-color:var(--blue)}
+  .badge{display:inline-block;font-size:11.5px;font-weight:700;border-radius:99px;padding:3px 11px;margin-bottom:12px}
+  .free .badge{background:var(--green-soft);color:var(--green)}
+  .ai .badge{background:var(--blue-soft);color:var(--blue)}
+  .card h2{margin:0 0 6px;font-size:17px;font-weight:700}
+  .card p{margin:0 0 14px;font-size:12.5px;color:var(--muted);line-height:1.7}
+  .card ul{margin:0;padding-left:17px;font-size:12.5px;color:#4b5563}
+  .card li{margin:3px 0}
+  .go{margin-top:16px;font-size:13px;font-weight:700}
+  .free .go{color:var(--green)}
+  .ai .go{color:var(--blue)}
+  .foot{margin-top:22px;font-size:11.5px;color:var(--muted);line-height:1.8}
+  .foot b{color:#4b5563}
+  @media (max-width:720px){ .cards{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>번역기</h1>
+  <p class="lead">브라우저에서 바로 실행되는 단일 페이지 번역 도구입니다. 설치 없이 아래에서 골라 쓰세요.</p>
+
+  <div class="cards">
+    <a class="card free" href="무료번역기.html">
+      <span class="badge">API 키 불필요</span>
+      <h2>무료 번역기</h2>
+      <p>브라우저 내장 엔진(오프라인)과 MyMemory를 사용합니다. 가입·키 발급 없이 즉시 사용.</p>
+      <ul>
+        <li>20개 언어 · 자동 감지</li>
+        <li>용어집 강제 치환</li>
+        <li>장문 자동 분할 · 역번역 검수</li>
+      </ul>
+      <div class="go">열기 →</div>
+    </a>
+
+    <a class="card ai" href="번역기.html">
+      <span class="badge">AI · API 키 필요</span>
+      <h2>AI 번역기</h2>
+      <p>Claude 또는 Gemini로 번역합니다. 분야·문체를 지정할 수 있어 전문 문서에 적합합니다.</p>
+      <ul>
+        <li>분야 프리셋(특허·법률·기술 등)</li>
+        <li>문체 지정 · 추가 지시사항</li>
+        <li>용어집 · 스트리밍 출력</li>
+      </ul>
+      <div class="go">열기 →</div>
+    </a>
+  </div>
+
+  <p class="foot">
+    <b>개인정보</b> — 무료 번역기의 내장 엔진은 원문이 기기 밖으로 나가지 않습니다.
+    MyMemory 엔진과 AI 번역기는 각 서비스 서버로 원문이 전송됩니다.
+    API 키는 브라우저에만 저장되며 서버로 수집되지 않습니다.
+  </p>
+</div>
+</body>
+</html>
